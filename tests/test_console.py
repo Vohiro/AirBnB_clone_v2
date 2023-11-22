@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""test for console"""
+"""This will test for the cosnole"""
 import unittest
 from unittest.mock import patch
 from io import StringIO
@@ -20,7 +20,7 @@ from models.engine.file_storage import FileStorage
 
 
 class TestConsole(unittest.TestCase):
-    """this will test the console"""
+    """ Test console"""
 
     @classmethod
     def setUpClass(cls):
@@ -29,7 +29,7 @@ class TestConsole(unittest.TestCase):
 
     @classmethod
     def teardown(cls):
-        """at the end of the test this will tear it down"""
+        """Tear down at the end"""
         del cls.consol
 
     def tearDown(self):
@@ -46,7 +46,7 @@ class TestConsole(unittest.TestCase):
         self.assertEqual(p.total_errors, 0, 'fix Pep8')
 
     def test_docstrings_in_console(self):
-        """checking for docstrings"""
+        """checks for docstrings"""
         self.assertIsNotNone(console.__doc__)
         self.assertIsNotNone(HBNBCommand.emptyline.__doc__)
         self.assertIsNotNone(HBNBCommand.do_quit.__doc__)
@@ -128,7 +128,7 @@ class TestConsole(unittest.TestCase):
                 "** no instance found **\n", f.getvalue())
 
     def test_all(self):
-        """Test all command inpout"""
+        """Test all command input"""
         with patch('sys.stdout', new=StringIO()) as f:
             self.consol.onecmd("all asdfsdfsd")
             self.assertEqual("** class doesn't exist **\n", f.getvalue())
@@ -137,7 +137,7 @@ class TestConsole(unittest.TestCase):
             self.assertEqual("[]\n", f.getvalue())
 
     def test_update(self):
-        """Test update command inpout"""
+        """Test update command"""
         with patch('sys.stdout', new=StringIO()) as f:
             self.consol.onecmd("update")
             self.assertEqual(
